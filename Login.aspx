@@ -14,14 +14,15 @@
         }
     </style>
 </head>
-<body style="text-align: left">
+<body>
     <form id="form1" runat="server">
     <div style="height: 527px">
     
         <strong><span class="auto-style1">Travel Agency With Booking System</span><br class="auto-style1" />
         </strong>
         <br />
-        <span class="auto-style2">LOGIN<br />
+        <span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>LOGIN<br />
+        </strong>
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Label1" runat="server" Text="Email"></asp:Label>
@@ -39,10 +40,14 @@
         </span>
         &nbsp;&nbsp;&nbsp;
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbPassword" Display="Dynamic" ErrorMessage="Enter your password" ForeColor="#FF3300" SetFocusOnError="True"></asp:RequiredFieldValidator>
+        <br />
+        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="lblMessage" runat="server" ForeColor="Green"></asp:Label>
         &nbsp;<br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="loginBtn" runat="server" Text="LOGIN" />
+        <asp:Button ID="loginBtn" runat="server" Text="LOGIN" OnClick="loginBtn_Click" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="registerBtn" runat="server" CausesValidation="False" OnClick="registerBtn_Click" Text="Register" />
         </div>
