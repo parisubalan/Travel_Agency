@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-// need to add thease imports
+// Need to add thease imports added by Pari - 24.12.2024
 using System.Data;
 using System.Data.SqlClient;
 
@@ -27,7 +27,7 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void registerBtn_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Register.aspx");
+        Response.Redirect("RegisterScreen.aspx");
     }
 
     protected void loginBtn_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ public partial class _Default : System.Web.UI.Page
         else if (adminDetail.Password != tbPassword.Text)
             lblMessage.Text = "Password was incorrect";
         else
-            Response.Redirect("Dashboard.aspx");
+            Response.Redirect("DashboardScreen.aspx");
     }
 
     public AdminDetail GetAdminDetailsByEmail(string email)

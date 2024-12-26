@@ -8,10 +8,10 @@ using System.Web.UI.WebControls;
 // need to add thease imports
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
-public partial class Register : System.Web.UI.Page
+public partial class PackageCreateScreen : System.Web.UI.Page
 {
-
     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\Pari\Mini Projects\Travel_Agency\App_Data\TravelAgencyDatabase.mdf;Integrated Security=True");
     SqlCommand cmd;
     protected void Page_Load(object sender, EventArgs e)
@@ -27,36 +27,31 @@ public partial class Register : System.Web.UI.Page
         cmd = con.CreateCommand();
         cmd.CommandType = CommandType.Text;
     }
-
-    protected void loginOpt_Click(object sender, EventArgs e)
+    protected void createBtn_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Login.aspx");
-    }
-
-    protected void registerBtn_Click(object sender, EventArgs e)
-    {
-        List<String> emailList = GetEmailList();
-        if (emailList.Contains(tbEmail.Text))
+        List<String> packageIDList = GetPackageCodeList();
+        if (packageIDList.Contains(tbPackCode.Text.ToString()))
         {
-            lblMessage.Visible = true;
-            lblMessage.Text = "This email id was already exist";
+            lblMessage.Text = "Package code was already exist!";
+            lblMessage.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff1100");
         }
         else
         {
-            cmd.CommandText = "insert into AdminsTable values('" + tbName.Text + "','" + tbEmail.Text + "','" + tbPassword.Text + "','" + tbMobile.Text + "','" + tbAddress.Text + "')";
+            cmd.CommandText = "insert into PackageTable values('" + tbPackCode.Text + "','" + tbPackName.Text + "','" + tbPackDesc.Text + "','" + tbPackPrice.Text + "','" + 0 + "','" + tbPackDuration.Text + "','" + tbMembersLimit.Text+ "')";
             cmd.ExecuteNonQuery();
-            lblMessage.Text = "User was registered";
+            lblMessage.Text = "Pacakge was created";
             lblMessage.ForeColor = System.Drawing.ColorTranslator.FromHtml("#34eb83");
             lblMessage.Visible = true;
+            Response.Redirect("DashboardScreen.aspx");
+            MessageBox.Show("Package was created");
         }
     }
 
-    public List<string> GetEmailList()
+    public List<string> GetPackageCodeList()
     {
-        List<string> emailList = new List<string>();
+        List<string> packageCodeList = new List<string>();
 
-        // Query to get email list - using parameterized query
-        string query = "SELECT email FROM AdminsTable";
+        string query = "SELECT packageCode FROM PackageTable";
 
         using (SqlCommand cmd = new SqlCommand(query, con))
         {
@@ -64,11 +59,10 @@ public partial class Register : System.Web.UI.Page
             {
                 while (reader.Read())
                 {
-                    emailList.Add(reader["email"].ToString());
+                    packageCodeList.Add(reader["packageCode"].ToString());
                 }
             }
         }
-
-        return emailList;
+        return packageCodeList;
     }
 }

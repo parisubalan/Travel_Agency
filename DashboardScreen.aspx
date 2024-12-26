@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Dashboard.aspx.cs" Inherits="Dashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DashboardScreen.aspx.cs" Inherits="Dashboard" %>
 
 <!DOCTYPE html>
 
@@ -40,41 +40,39 @@
                 <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
                 <asp:BoundField DataField="members" HeaderText="Members" SortExpression="members" />
                 <asp:BoundField DataField="duration" HeaderText="Duration" SortExpression="duration" />
-                <asp:BoundField DataField="bookingCount" HeaderText="Booking Count" SortExpression="bookingCount" />
                 <asp:BoundField DataField="price" HeaderText="Price" SortExpression="price" />
 
-                <%-- Need to add this asp:TemplateField part to show action buttons in gridview added by Pari at 24.12.2024--%>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton ID="editBtn" Text ="Edit" ForeColor="Blue" runat="server" CommandArgument='<%# Eval("packageCode") %>' />
-                        <asp:LinkButton ID="deleteBtn" Text ="Delete" ForeColor="Red" runat="server" CommandArgument='<%# Eval("packageCode") %>' />
-                        <asp:LinkButton ID="bookNowBtn" Text ="Book Now" ForeColor ="Green" runat="server" CommandArgument='<%# Eval("packageCode") %>' />
+                        <asp:LinkButton ID="editBtn" OnClick="editBtn_Click" Text ="Edit" ForeColor="Blue" runat="server" CommandArgument='<%# Eval("packageCode") %>' />
+                        <asp:LinkButton ID="deleteBtn" OnClick="deleteBtn_Click" Text ="Delete" ForeColor="Red" runat="server" CommandArgument='<%# Eval("packageCode") %>' />
+                        <asp:LinkButton ID="bookNowBtn" OnClick="bookNowBtn_Click" Text ="Book Now" ForeColor ="Green" runat="server" CommandArgument='<%# Eval("packageCode") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
 
             </Columns>
-            <EditRowStyle BackColor="#7C6F57" />
-            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#E3EAEB" />
-            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#F8FAFA" />
-            <SortedAscendingHeaderStyle BackColor="#246B61" />
-            <SortedDescendingCellStyle BackColor="#D4DFE1" />
-            <SortedDescendingHeaderStyle BackColor="#15524A" />
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [packageCode], [name], [description], [duration], [members], [bookingCount], [price] FROM [PackageTable]"></asp:SqlDataSource>
         <br />
     
         </span>
-        <asp:Button ID="createPackBtn" runat="server" OnClick="createPackBtn_Click" Text="Add Package" />
+        <asp:Button ID="createPackBtn" runat="server" OnClick="createPackBtn_Click" Text="Add Package" Height="50px" Width="150px" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button2" runat="server" Text="All Bookings" />
+        <asp:Button ID="allBookingsBtn" runat="server" Text="All Bookings" Height="50px" OnClick="allBookingsBtn_Click" Width="150px" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button3" runat="server" Text="Report" />
+        <asp:Button ID="reportBtn" runat="server" Text="Report" Height="50px" OnClick="reportBtn_Click" Width="147px" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button4" runat="server" Text="Contact us" />
+        <asp:Button ID="logoutBtn" runat="server" Text="Logout" Height="50px" OnClick="logoutBtn_Click" Width="150px" />
     
     </div>
     </form>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Register.aspx.cs" Inherits="Register" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RegisterScreen.aspx.cs" Inherits="Register" %>
 
 <!DOCTYPE html>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditPackageForm.aspx.cs" Inherits="EditPackageForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditPackageScreen.aspx.cs" Inherits="EditPackageForm" %>
 
 <!DOCTYPE html>
 
@@ -90,14 +90,9 @@
         <br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
-        <asp:Button ID="createBtn" runat="server" OnClick="createBtn_Click" Text="Update Package" />
+        <asp:Button ID="updateBtn" runat="server" Text="Update Package" OnClick="updateBtn_Click" />
     
     </div>
     </form>
-    <form id="form1" runat="server">
-    <div style="height: 733px">
-    
-    </div>
-    </form>
-</body>
+    </body>
 </html>

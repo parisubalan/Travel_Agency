@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PackageCreateForm.aspx.cs" Inherits="PackageCreateScreen" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PackageCreateScreen.aspx.cs" Inherits="PackageCreateScreen" %>
 
 <!DOCTYPE html>
 
