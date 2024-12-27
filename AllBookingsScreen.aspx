@@ -37,7 +37,7 @@
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton ID="viewBtn" OnClick="viewBtn_Click" Text="View" ForeColor="Green" runat="server" CommandArgument='<%# Eval("bookingCode") %>' />
-                            <asp:LinkButton ID="deleteBtn" OnClick="deleteBtn_Click" Text="Delete" ForeColor="Red" runat="server" CommandArgument='<%# Eval("bookingCode") %>' />
+                            <asp:LinkButton ID="deleteBtn" OnClick="deleteBtn_Click" OnClientClick="return confirm('Are you sure want to delete?');" Text="Delete" ForeColor="Red" runat="server" CommandArgument='<%# Eval("bookingCode") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
