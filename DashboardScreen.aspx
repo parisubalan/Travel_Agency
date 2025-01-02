@@ -20,10 +20,7 @@
         .auto-style5 {
             font-size: x-large;
         }
-        .auto-style6 {
-            font-size: large;
-        }
-    </style>
+        </style>
 </head>
 <body style="text-align: center">
     <form id="form1" runat="server">
@@ -39,11 +36,10 @@
 
             </span>
 
-            <span class="auto-style6">
+            <span class="auto-style5">
 
-                        Dashboard</span><span class="auto-style1"><br />
+                        Dashboard</span><br />
 
-            </span>
                     </span>
                 </strong>
 
@@ -52,14 +48,14 @@
                 <br />
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource1" Width="1106px">
                     <Columns>
-                        <asp:BoundField DataField="packageCode" HeaderText="packageCode" SortExpression="packageCode" />
-                        <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
-                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
-                        <asp:BoundField DataField="duration" HeaderText="duration" SortExpression="duration" />
-                        <asp:BoundField DataField="members" HeaderText="members" SortExpression="members" />
-                        <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
+                        <asp:BoundField DataField="packageCode" HeaderText="Code" SortExpression="packageCode" />
+                        <asp:BoundField DataField="name" HeaderText="Name" SortExpression="name" />
+                        <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
+                        <asp:BoundField DataField="duration" HeaderText="Duration" SortExpression="duration" />
+                        <asp:BoundField DataField="members" HeaderText="Members" SortExpression="members" />
+                        <asp:BoundField DataField="price" HeaderText="Price" SortExpression="price" />
 
-                        <%-- Need to add this asp:TemplateField part to show action buttons in gridview added by Pari at 24.12.2024--%>
+                         <%-- Need to add this asp:TemplateField part to show action buttons in gridview added by Pari at 24.12.2024--%>
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:LinkButton ID="editBtn" OnClick="editBtn_Click" Text="Edit" ForeColor="Blue" runat="server" CommandArgument='<%# Eval("packageCode") %>' />
@@ -67,7 +63,6 @@
                                 <asp:LinkButton ID="bookNowBtn" OnClick="bookNowBtn_Click" Text="Book Now" ForeColor="Green" runat="server" CommandArgument='<%# Eval("packageCode") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
-
                     </Columns>
                     <FooterStyle BackColor="White" ForeColor="#000066" />
                     <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />

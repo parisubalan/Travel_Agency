@@ -48,6 +48,7 @@ public partial class Register : System.Web.UI.Page
             lblMessage.Text = "User was registered";
             lblMessage.ForeColor = System.Drawing.ColorTranslator.FromHtml("#34eb83");
             lblMessage.Visible = true;
+            Response.Redirect("DashboardScreen.aspx");
         }
     }
 

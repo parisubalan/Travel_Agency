@@ -85,9 +85,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="loginOpt" runat="server" Text="LOGIN" CausesValidation="False" OnClick="loginOpt_Click" />
+        <asp:Button ID="registerBtn" runat="server" Text="Register"  OnClick="registerBtn_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="registerBtn" runat="server" Text="Register" OnClick="registerBtn_Click" />
+        <asp:Button ID="loginOpt" runat="server" Text="Login" CausesValidation="False" OnClick="loginOpt_Click"/>
     
     </div>
     </form>
