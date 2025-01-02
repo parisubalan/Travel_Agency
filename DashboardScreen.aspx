@@ -90,7 +90,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="reportBtn" runat="server" Text="Report" Height="50px" OnClick="reportBtn_Click" Width="147px" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="logoutBtn" runat="server" Text="Logout" Height="50px" OnClick="logoutBtn_Click" Width="150px" OnClientClick="return confirm('Are you sure?');" />
+        <asp:Button ID="logoutBtn" runat="server" Text="Logout" Height="50px" OnClick="logoutBtn_Click" Width="150px" OnClientClick="return confirm('Are you sure want to logout?');" />
 
         </div>
     </form>

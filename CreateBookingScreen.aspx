@@ -116,7 +116,7 @@
         <br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
-        <asp:Button ID="createBtn" runat="server" OnClick="createBtn_Click" Text="Create Booking" />
+        <asp:Button ID="createBtn" runat="server" OnClick="createBtn_Click" OnClientClick="" Text="Create Booking" />
     
         </span>
     

@@ -53,7 +53,8 @@ public partial class CreateBookingForm : System.Web.UI.Page
                         lblDesc.Text = reader["description"].ToString();
                         lblDuration.Text = reader["duration"].ToString();
                         lblMember.Text = reader["members"].ToString();
-                        lblPrice.Text = "Rs. " + reader["price"].ToString();
+                        //lblPrice.Text = "Rs. " + reader["price"].ToString();
+                        lblPrice.Text = reader["price"].ToString();
                     }
                 }
             }
@@ -69,6 +70,7 @@ public partial class CreateBookingForm : System.Web.UI.Page
         lblMessage.ForeColor = System.Drawing.ColorTranslator.FromHtml("#34eb83");
         lblMessage.Visible = true;
         updateBookingCount();
+        updateTotalRevenue(lblPrice.Text.ToString());
         Response.Redirect("DashboardScreen.aspx");
     }
 
@@ -121,6 +123,31 @@ public partial class CreateBookingForm : System.Web.UI.Page
     {
         int bookingCount = getBookingCount();
         string query = "UPDATE PackageTable SET BookingCount ='" + (bookingCount+1) + "' WHERE packageCode = '" + lblPackCode.Text + "' ";
+        cmd.CommandText = query;
+        cmd.ExecuteNonQuery();
+        //con.Close();
+    }
+
+    private int getTotalRevenue()
+    {
+        //string updateBookingCountQuery = "UPDATE PackageTable SET BookingCount = BookingCount + 1 WHERE PackageId = @PackageId";
+        int totalRevenue = -1;
+        string query1 = "SELECT totalRevenue FROM PackageTable WHERE packageCode = '" + lblPackCode.Text + "'";
+        cmd.CommandText = query1;
+        object result = cmd.ExecuteScalar();
+        if (result != null)
+        {
+            totalRevenue = Convert.ToInt32(result);
+        }
+        return totalRevenue;
+    }
+
+
+    private void updateTotalRevenue(string packPrice)
+    {
+        int mPackPrice = Convert.ToInt32(packPrice);
+        int lastRevenue = getTotalRevenue();
+        string query = "UPDATE PackageTable SET totalRevenue ='" + (lastRevenue + mPackPrice) + "' WHERE packageCode = '" + lblPackCode.Text + "' ";
         cmd.CommandText = query;
         cmd.ExecuteNonQuery();
         con.Close();

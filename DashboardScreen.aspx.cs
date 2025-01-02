@@ -25,7 +25,7 @@ public partial class Dashboard : System.Web.UI.Page
     }
     protected void createPackBtn_Click(object sender, EventArgs e)
     {
-        Response.Redirect("PackageCreateScreen.aspx");
+        Response.Redirect("AddPackageScreen.aspx");
     }
 
     protected void editBtn_Click(object sender, EventArgs e)

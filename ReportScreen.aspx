@@ -50,10 +50,11 @@
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="SqlDataSource1" style="font-size: large" Width="1088px">
             <Columns>
                 <asp:BoundField DataField="packageCode" HeaderText="Package Code" SortExpression="packageCode" />
-                <asp:BoundField DataField="name" HeaderText="Package Name" SortExpression="name" />
-                <asp:BoundField DataField="price" HeaderText="Package Price" SortExpression="price" />
-                <asp:BoundField DataField="duration" HeaderText="Duration (Days)" SortExpression="duration" />
+                <asp:BoundField DataField="name" HeaderText="Name" SortExpression="name" />
+                <asp:BoundField DataField="duration" HeaderText="Duration" SortExpression="duration" />
+                <asp:BoundField DataField="price" HeaderText="Price" SortExpression="price" />
                 <asp:BoundField DataField="bookingCount" HeaderText="Booking Count" SortExpression="bookingCount" />
+                <asp:BoundField DataField="totalRevenue" HeaderText="Total Revenue" SortExpression="totalRevenue" />
             </Columns>
             <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
@@ -66,9 +67,7 @@
             <SortedDescendingHeaderStyle BackColor="#7E0000" />
         </asp:GridView>
     
-        <strong>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [packageCode], [name], [price], [duration], [bookingCount] FROM [PackageTable]"></asp:SqlDataSource>
-        </strong>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [packageCode], [name], [duration], [price], [bookingCount], [totalRevenue] FROM [PackageTable]"></asp:SqlDataSource>
         <br />
     
         </span>

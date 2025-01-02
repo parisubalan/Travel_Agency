@@ -37,8 +37,7 @@ public partial class PackageCreateScreen : System.Web.UI.Page
         }
         else
         {
-                              "insert into BookTable values('" + bookcode.Text + "','" + bookname.Text + "','" + discription.Text + "','" + price.Text + "','" + language.Text + ",'" + author.Text + "','" + 0 + "')";
-            cmd.CommandText = "insert into PackageTable values('" + tbPackCode.Text + "','" + tbPackName.Text + "','" + tbPackDesc.Text + "','" + tbPackPrice.Text + "','" + 0 + "','" + tbPackDuration.Text + "','" + tbMembersLimit.Text+ "')";
+            cmd.CommandText = "insert into PackageTable values('" + tbPackCode.Text + "','" + tbPackName.Text + "','" + tbPackDesc.Text + "','" + tbPackPrice.Text + "','" + 0 + "','" + tbPackDuration.Text + "','" + tbMembersLimit.Text+ "','"+0+"')";
             cmd.ExecuteNonQuery();
             lblMessage.Text = "Pacakge was created";
             lblMessage.ForeColor = System.Drawing.ColorTranslator.FromHtml("#34eb83");
