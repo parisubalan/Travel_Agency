@@ -29,41 +29,41 @@ Traveling has become an integral part of modern lifestyles, and the demand for e
 | Column Name | Data Type    | Description                          | Constraints                                  |
 |-------------|--------------|--------------------------------------|----------------------------------------------|
 | Id          | INT          | Unique identifier for each admin     | Primary Key, Identity (auto-increment starting at 1, step 1) |
-| name        | VARCHAR(255) | Admin's name                        | Not null                                     |
-| email       | VARCHAR(255) | Admin's email address               | Not null                                     |
-| password    | VARCHAR(255) | Admin's password                    | Not null                                     |
-| mobile      | VARCHAR(255) | Admin's mobile phone number         | Not null                                     |
-| address     | VARCHAR(255) | Admin's physical address            | Not null                                     |
+| name        | VARCHAR(50)  | Admin's name                        | Not null                                     |
+| email       | VARCHAR(50)  | Admin's email address               | Not null                                     |
+| password    | VARCHAR(50)  | Admin's password                    | Not null                                     |
+| mobile      | VARCHAR(50)  | Admin's mobile phone number         | Not null                                     |
+| address     | VARCHAR(50)  | Admin's physical address            | Not null                                     |
 
 **Table2 : PackageTable**
 | Column Name      | Data Type       | Description                            | Constraints                           |
 |------------------|-----------------|----------------------------------------|---------------------------------------|
 | Id               | INT             | Unique identifier for each package     | Primary key, Identity (auto-increment starting at 1, step 1) |
-| packageCode      | VARCHAR(255)    | Code representing the package          | Not null                              |
-| name             | VARCHAR(255)    | Name of the package                    | Not null                              |
-| description      | VARCHAR(255)    | Description of the package             | Not null                              |
-| price            | VARCHAR(255)    | Price of the package                   | Not null                              |
-| bookingCount     | VARCHAR(255)    | Number of bookings for the package     | Not null                              |
+| packageCode      | VARCHAR(50)     | Code representing the package          | Not null                              |
+| name             | VARCHAR(50)     | Name of the package                    | Not null                              |
+| description      | VARCHAR(50)     | Description of the package             | Not null                              |
+| price            | VARCHAR(50)     | Price of the package                   | Not null                              |
+| bookingCount     | VARCHAR(50)     | Number of bookings for the package     | Not null                              |
 | duration         | VARCHAR(50)     | Duration of the package                | Not null                              |
-| members          | VARCHAR(255)    | Number of members included in the package | Not null                           |
+| members          | VARCHAR(50)     | Number of members included in the package | Not null                           |
 | totalRevenue     | INT             | Total revenue generated from the package | Not null                            | 
 
 **Table3 : BookingsTable**
 | Column Name      | Data Type       | Description                              | Constraints                                  |
 |------------------|-----------------|------------------------------------------|----------------------------------------------|
 | Id               | INT             | Unique identifier for each booking       | Primary Key, Identity (auto-increment starting at 1, step 1) |
-| bookingCode      | VARCHAR(255)    | Code representing the booking            | Not null                                     |
-| packCode         | VARCHAR(255)    | Code of the associated package           | Not null                                     |
-| packname         | VARCHAR(255)    | Name of the associated package           | Not null                                     |
-| packDesc         | VARCHAR(255)    | Description of the package               | Not null                                     |
-| packPrice        | VARCHAR(255)    | Price of the package                     | Not null                                     |
+| bookingCode      | VARCHAR(50)     | Code representing the booking            | Not null                                     |
+| packCode         | VARCHAR(50)     | Code of the associated package           | Not null                                     |
+| packname         | VARCHAR(50)     | Name of the associated package           | Not null                                     |
+| packDesc         | VARCHAR(50)     | Description of the package               | Not null                                     |
+| packPrice        | VARCHAR(50)     | Price of the package                     | Not null                                     |
 | packDuration     | VARCHAR(50)     | Duration of the package                  | Not null                                     |
-| packMembers      | VARCHAR(255)    | Number of members in the package         | Not null                                     |
-| clientName       | VARCHAR(255)    | Name of the client                       | Not null                                     |
-| clientMobile     | VARCHAR(255)    | Mobile number of the client              | Not null                                     |
-| clientEmail      | VARCHAR(255)    | Email address of the client              | Not null                                     |
-| startDate        | VARCHAR(255)    | Start date of the booking                | Not null                                     |
-| endDate          | VARCHAR(255)    | End date of the booking                  | Not null                                     |
+| packMembers      | VARCHAR(50)     | Number of members in the package         | Not null                                     |
+| clientName       | VARCHAR(50)     | Name of the client                       | Not null                                     |
+| clientMobile     | VARCHAR(50)     | Mobile number of the client              | Not null                                     |
+| clientEmail      | VARCHAR(50)     | Email address of the client              | Not null                                     |
+| startDate        | VARCHAR(50)     | Start date of the booking                | Not null                                     |
+| endDate          | VARCHAR(50)     | End date of the booking                  | Not null                                     |
 
 # Flow sketches
 ![000_Login_Register_Screen](https://github.com/user-attachments/assets/99d1a4f6-7177-4953-bda6-ee70f50ef59d)
