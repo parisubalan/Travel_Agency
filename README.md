@@ -1,4 +1,4 @@
-# Travel_Agency_with_booking ( Mini Project's )
+# Travel Agency with booking ( Mini Project )
 
 # Description
 Traveling has become an integral part of modern lifestyles, and the demand for efficient and user-friendly travel agency management systems is continuously growing. This project, titled **Travel Agency with Booking** is designed to address these needs by creating a comprehensive and interactive platform for managing travel packages, user bookings, and associated operational tasks.
