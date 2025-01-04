@@ -5,24 +5,15 @@ Traveling has become an integral part of modern lifestyles, and the demand for e
 
 # Technical Details
 **Software Requirements**
-  <br />Operating System  	-	Windows 11
+  <br />Operating System  	-	Any Windows OS
   <br />Front end  		      -	Asp.net with C#
   <br />Back end  		      -	SQL
   <br />Application         -	Visual Studio 2012
   <br />Browser             -	ANY BROWSER
 <br /><br />**Hardware Requirements**
-  <br />Processors 		-	Any Windows OS
-  <br />Front end  		-	Asp.net with C#
-  <br />Back end  		-	SQL
-  <br />Application 	-	Visual Studio 2012
-  <br />Browser  		  -	ANY BROWSER
-
-# Module's
-**1.Multiple Package Management**: The system allows travel agencies to create and edit various travel packages, including details like package name, duration, price, and member limit's feature helps organize and present different travel options to users effectively.
-<br />**2.User Booking Interface:** Users can explore the available packages and book the one that best suits their preferences. The booking process is intuitive and ensures that users can securely and quickly reserve their desired packages.
-<br />**3.Booking Details Screen:** A dedicated screen displays the booking details for both the user and the travel agency staff. This feature ensures transparent and efficient handling of customer reservations.
-<br />**4.Package Create and Edit Screen:** Travel agencies can manage their offerings seamlessly using a specialized interface for creating new packages and editing existing ones. This functionality provides the flexibility to keep the package list updated with minimal effort.
-<br />**5. Reports Screen:** The reporting feature enables administrators to generate insights about booking trends, revenue generation, and user preferences. This data can help in making strategic business decisions.
+  <br />Processors 		      -	Intel Pentium
+  <br />RAM        		      -	2GB RAM
+  <br />Hard Disk 		      -	10GB
 
 # Table Structure
 **Table1 : AdminsTable**
@@ -64,6 +55,14 @@ Traveling has become an integral part of modern lifestyles, and the demand for e
 | clientEmail      | VARCHAR(50)     | Email address of the client              | Not null                                     |
 | startDate        | VARCHAR(50)     | Start date of the booking                | Not null                                     |
 | endDate          | VARCHAR(50)     | End date of the booking                  | Not null                                     |
+
+# Module's
+**1.Multiple Package Management**: The system allows travel agencies to create and edit various travel packages, including details like package name, duration, price, and member limit's feature helps organize and present different travel options to users effectively.
+<br />**2.User Booking Interface:** Users can explore the available packages and book the one that best suits their preferences. The booking process is intuitive and ensures that users can securely and quickly reserve their desired packages.
+<br />**3.Booking Details Screen:** A dedicated screen displays the booking details for both the user and the travel agency staff. This feature ensures transparent and efficient handling of customer reservations.
+<br />**4.Package Create and Edit Screen:** Travel agencies can manage their offerings seamlessly using a specialized interface for creating new packages and editing existing ones. This functionality provides the flexibility to keep the package list updated with minimal effort.
+<br />**5. Reports Screen:** The reporting feature enables administrators to generate insights about booking trends, revenue generation, and user preferences. This data can help in making strategic business decisions.
+
 
 # Flow sketches
 ![000_Login_Register_Screen](https://github.com/user-attachments/assets/99d1a4f6-7177-4953-bda6-ee70f50ef59d)
