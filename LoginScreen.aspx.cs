@@ -32,25 +32,24 @@ public partial class _Default : System.Web.UI.Page
 
     protected void loginBtn_Click(object sender, EventArgs e)
     {
-        AdminDetail adminDetail = GetAdminDetailsByEmail(tbEmail.Text);
-        if (adminDetail == null)
+        // Get all email id list in admin table
+        List<string> emailList = getEmailList();
+        if(!emailList.Contains(tbEmail.Text.ToString().Trim()))
             lblMessage.Text = "This email was not registered";
-        else if (adminDetail.Password != tbPassword.Text)
+        else if (getAdminPassword(tbEmail.Text.ToString().Trim())!= tbPassword.Text)
             lblMessage.Text = "Password was incorrect";
         else
             Response.Redirect("DashboardScreen.aspx");
     }
 
-    public AdminDetail GetAdminDetailsByEmail(string email)
+    public List<string> getEmailList()
     {
-        string query = "SELECT name, email, address, password FROM AdminsTable WHERE email =@Email";
-        AdminDetail adminDetail = null;
-
+        List<string> emailList = new List<string>();
+        string query = "SELECT email FROM AdminsTable";
         using (SqlCommand cmd = new SqlCommand())
         {
             cmd.Connection = con;
             cmd.CommandText = query; // Set the query
-            cmd.Parameters.AddWithValue("@Email", email); // Add parameter
 
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -58,15 +57,34 @@ public partial class _Default : System.Web.UI.Page
                 {
                     while (reader.Read())
                     {
-                        adminDetail = new AdminDetail();
-                        adminDetail.Name = reader["name"].ToString();
-                        adminDetail.Email = reader["email"].ToString();
-                        adminDetail.Address = reader["address"].ToString();
-                        adminDetail.Password = reader["password"].ToString();
+                        emailList.Add(reader["email"].ToString());
                     }
                 }
             }
         }
-        return adminDetail;
+        return emailList;
+    }
+
+    public string getAdminPassword(string emailId)
+    {
+        string adminPassword = "";
+        string query = "SELECT password FROM AdminsTable where email = '"+emailId+"'";
+        using (SqlCommand cmd = new SqlCommand())
+        {
+            cmd.Connection = con;
+            cmd.CommandText = query; // Set the query
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        adminPassword = reader["password"].ToString();
+                    }
+                }
+            }
+        }
+        return adminPassword;
     }
 }

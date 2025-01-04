@@ -69,8 +69,7 @@ public partial class CreateBookingForm : System.Web.UI.Page
         lblMessage.Text = "Booking was created";
         lblMessage.ForeColor = System.Drawing.ColorTranslator.FromHtml("#34eb83");
         lblMessage.Visible = true;
-        updateBookingCount();
-        updateTotalRevenue(lblPrice.Text.ToString());
+        updateBookingCountAndRevenue(lblPrice.Text.ToString());
         Response.Redirect("DashboardScreen.aspx");
     }
 
@@ -99,17 +98,27 @@ public partial class CreateBookingForm : System.Web.UI.Page
     private bool IsBookingCodeExists(string bookingCode)
     {
         // Check if the booking code exists in the database
-        string query = "SELECT COUNT(1) FROM BookingsTable WHERE bookingCode ='"+bookingCode+"' ";
+        string query = "SELECT COUNT(1) FROM BookingsTable WHERE bookingCode ='" + bookingCode + "' ";
         SqlCommand cmd = new SqlCommand(query, con);
         int count = Convert.ToInt32(cmd.ExecuteScalar());
         return count > 0; // True if the booking code exists
     }
 
+    private void updateBookingCountAndRevenue(string packPrice)
+    {
+        int bookingCount = getBookingCount();
+        int lastRevenue = getTotalRevenue();
+        int mPackPrice = Convert.ToInt32(packPrice);
+        string query = "UPDATE PackageTable SET BookingCount ='" + (bookingCount + 1) + "', totalRevenue ='" + (lastRevenue + mPackPrice) + "' WHERE packageCode = '" + lblPackCode.Text + "' ";
+        cmd.CommandText = query;
+        cmd.ExecuteNonQuery();
+        con.Close();
+    }
+
     private int getBookingCount()
     {
-        //string updateBookingCountQuery = "UPDATE PackageTable SET BookingCount = BookingCount + 1 WHERE PackageId = @PackageId";
         int bookingCount = -1;
-        string query1 = "SELECT bookingCount FROM PackageTable WHERE packageCode = '" + lblPackCode.Text +"'";
+        string query1 = "SELECT bookingCount FROM PackageTable WHERE packageCode = '" + lblPackCode.Text + "'";
         cmd.CommandText = query1;
         object result = cmd.ExecuteScalar();
         if (result != null)
@@ -119,18 +128,8 @@ public partial class CreateBookingForm : System.Web.UI.Page
         return bookingCount;
     }
 
-    private void updateBookingCount()
-    {
-        int bookingCount = getBookingCount();
-        string query = "UPDATE PackageTable SET BookingCount ='" + (bookingCount+1) + "' WHERE packageCode = '" + lblPackCode.Text + "' ";
-        cmd.CommandText = query;
-        cmd.ExecuteNonQuery();
-        //con.Close();
-    }
-
     private int getTotalRevenue()
     {
-        //string updateBookingCountQuery = "UPDATE PackageTable SET BookingCount = BookingCount + 1 WHERE PackageId = @PackageId";
         int totalRevenue = -1;
         string query1 = "SELECT totalRevenue FROM PackageTable WHERE packageCode = '" + lblPackCode.Text + "'";
         cmd.CommandText = query1;
@@ -141,16 +140,4 @@ public partial class CreateBookingForm : System.Web.UI.Page
         }
         return totalRevenue;
     }
-
-
-    private void updateTotalRevenue(string packPrice)
-    {
-        int mPackPrice = Convert.ToInt32(packPrice);
-        int lastRevenue = getTotalRevenue();
-        string query = "UPDATE PackageTable SET totalRevenue ='" + (lastRevenue + mPackPrice) + "' WHERE packageCode = '" + lblPackCode.Text + "' ";
-        cmd.CommandText = query;
-        cmd.ExecuteNonQuery();
-        con.Close();
-    }
-
 }

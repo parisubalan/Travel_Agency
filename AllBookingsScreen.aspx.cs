@@ -40,11 +40,32 @@ public partial class AllBookingsScreen : System.Web.UI.Page
 
     protected void deleteBtn_Click(object sender, EventArgs e)
     {
-        String bookingCode = Convert.ToString((sender as LinkButton).CommandArgument);
+        string bookingCode = Convert.ToString((sender as LinkButton).CommandArgument);
+        reduceBookingCountAndRevenue(bookingCode);
+        deleteBooking(bookingCode);
+    }
+
+    private void reduceBookingCountAndRevenue(string bookingCode)
+    {
+        string query = "select bookingCount * FROM bookingsTable WHERE bookingCode ='" + bookingCode + "' limit 1";
+        cmd.CommandText = query;
+        cmd.ExecuteNonQuery();
+        object result = cmd.ExecuteScalar();
+        if (result != null)
+        {
+            //string bookingCount = result.ToString();
+        }
+        else { 
+        
+        }
+    }
+
+    private void deleteBooking(string bookingCode)
+    {
         string query = "Delete FROM bookingsTable WHERE bookingCode ='" + bookingCode + "'";
         cmd.CommandText = query;
         cmd.ExecuteNonQuery();
-        con.Close();
+       // con.Close();
         GridView1.DataBind();
     }
 }
