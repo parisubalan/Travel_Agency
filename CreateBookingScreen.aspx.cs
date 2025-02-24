@@ -38,25 +38,19 @@ public partial class CreateBookingForm : System.Web.UI.Page
     private void getPackageDetail(string packageCode)
     {
         string query = "SELECT * FROM PackageTable WHERE packageCode ='" + packageCode + "'";
-        using (SqlCommand cmd = new SqlCommand())
+        cmd.Connection = con;
+        cmd.CommandText = query;
+        using (SqlDataReader reader = cmd.ExecuteReader())
         {
-            cmd.Connection = con;
-            cmd.CommandText = query;
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            while (reader.Read())
             {
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        lblPackCode.Text = packageCode.ToString();
-                        lblPackName.Text = reader["name"].ToString();
-                        lblDesc.Text = reader["description"].ToString();
-                        lblDuration.Text = reader["duration"].ToString();
-                        lblMember.Text = reader["members"].ToString();
-                        //lblPrice.Text = "Rs. " + reader["price"].ToString();
-                        lblPrice.Text = reader["price"].ToString();
-                    }
-                }
+                lblPackCode.Text = packageCode.ToString();
+                lblPackName.Text = reader["name"].ToString();
+                lblDesc.Text = reader["description"].ToString();
+                lblDuration.Text = reader["duration"].ToString();
+                lblMember.Text = reader["members"].ToString();
+                //lblPrice.Text = "Rs. " + reader["price"].ToString();
+                lblPrice.Text = reader["price"].ToString();
             }
         }
     }
@@ -69,7 +63,7 @@ public partial class CreateBookingForm : System.Web.UI.Page
         lblMessage.Text = "Booking was created";
         lblMessage.ForeColor = System.Drawing.ColorTranslator.FromHtml("#34eb83");
         lblMessage.Visible = true;
-        updateBookingCountAndRevenue(lblPrice.Text.ToString());
+        updateBookingCountAndRevenue(Convert.ToInt32(lblPrice.Text.ToString()));
         Response.Redirect("DashboardScreen.aspx");
     }
 
@@ -104,11 +98,10 @@ public partial class CreateBookingForm : System.Web.UI.Page
         return count > 0; // True if the booking code exists
     }
 
-    private void updateBookingCountAndRevenue(string packPrice)
+    private void updateBookingCountAndRevenue(int mPackPrice)
     {
         int bookingCount = getBookingCount();
         int lastRevenue = getTotalRevenue();
-        int mPackPrice = Convert.ToInt32(packPrice);
         string query = "UPDATE PackageTable SET BookingCount ='" + (bookingCount + 1) + "', totalRevenue ='" + (lastRevenue + mPackPrice) + "' WHERE packageCode = '" + lblPackCode.Text + "' ";
         cmd.CommandText = query;
         cmd.ExecuteNonQuery();

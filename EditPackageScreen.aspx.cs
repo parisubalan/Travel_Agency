@@ -37,28 +37,21 @@ public partial class EditPackageForm : System.Web.UI.Page
 
     private void getPackageDetail(string packageCode)
     {
-        string query = "SELECT * FROM PackageTable WHERE packageCode =@PackageCode";
+        string query = "SELECT * FROM PackageTable WHERE packageCode ='" + packageCode + "'";
 
-        using (SqlCommand cmd = new SqlCommand())
+        cmd.Connection = con;
+        cmd.CommandText = query; // Set the query
+
+        using (SqlDataReader reader = cmd.ExecuteReader())
         {
-            cmd.Connection = con;
-            cmd.CommandText = query; // Set the query
-            cmd.Parameters.AddWithValue("@PackageCode", packageCode); // Add parameter
-
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            while (reader.Read())
             {
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        lblPackCode.Text = packageCode.ToString();
-                        tbPackName.Text = reader["name"].ToString();
-                        tbPackDesc.Text = reader["description"].ToString();
-                        tbPackDuration.Text = reader["duration"].ToString();
-                        tbMembersLimit.Text = reader["members"].ToString();
-                        tbPackPrice.Text = reader["price"].ToString();
-                    }
-                }
+                lblPackCode.Text = packageCode.ToString();
+                tbPackName.Text = reader["name"].ToString();
+                tbPackDesc.Text = reader["description"].ToString();
+                tbPackDuration.Text = reader["duration"].ToString();
+                tbMembersLimit.Text = reader["members"].ToString();
+                tbPackPrice.Text = reader["price"].ToString();
             }
         }
     }

@@ -34,32 +34,28 @@ public partial class BookingDetailScreen : System.Web.UI.Page
 
     private void getBookingDetail(string bookingCode)
     {
-        string query = "SELECT * FROM BookingsTable WHERE bookingCode ='"+bookingCode+"'";
+        string query = "SELECT * FROM BookingsTable WHERE bookingCode ='" + bookingCode + "'";
+        cmd.Connection = con;
+        cmd.CommandText = query; // Set the query
 
-        using (SqlCommand cmd = new SqlCommand())
+        using (SqlDataReader reader = cmd.ExecuteReader())
         {
-            cmd.Connection = con;
-            cmd.CommandText = query; // Set the query
-
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            if (reader.HasRows)
             {
-                if (reader.HasRows)
+                while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        lblBookingCode.Text = bookingCode.ToString();
-                        lblPackCode.Text = reader["packCode"].ToString();
-                        lblPackName.Text = reader["packname"].ToString();
-                        lblDesc.Text = reader["packDesc"].ToString();
-                        lblDuration.Text = reader["packDuration"].ToString();
-                        lblMember.Text = reader["packMembers"].ToString();
-                        lblPrice.Text = reader["packprice"].ToString();
-                        lblClientName.Text = reader["clientName"].ToString();
-                        lblClinetEmail.Text = reader["clientMobile"].ToString();
-                        lblClientMobile.Text = reader["clientEmail"].ToString();
-                        lblStartDate.Text = reader["startDate"].ToString();
-                        lblEndDate.Text = reader["endDate"].ToString();
-                    }
+                    lblBookingCode.Text = bookingCode.ToString();
+                    lblPackCode.Text = reader["packCode"].ToString();
+                    lblPackName.Text = reader["packname"].ToString();
+                    lblDesc.Text = reader["packDesc"].ToString();
+                    lblDuration.Text = reader["packDuration"].ToString();
+                    lblMember.Text = reader["packMembers"].ToString();
+                    lblPrice.Text = reader["packprice"].ToString();
+                    lblClientName.Text = reader["clientName"].ToString();
+                    lblClinetEmail.Text = reader["clientMobile"].ToString();
+                    lblClientMobile.Text = reader["clientEmail"].ToString();
+                    lblStartDate.Text = reader["startDate"].ToString();
+                    lblEndDate.Text = reader["endDate"].ToString();
                 }
             }
         }

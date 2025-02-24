@@ -8,7 +8,6 @@ using System.Web.UI.WebControls;
 // Need to add thease imports added by Pari - 24.12.2024
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 public partial class Dashboard : System.Web.UI.Page
 {
@@ -28,6 +27,21 @@ public partial class Dashboard : System.Web.UI.Page
         Response.Redirect("AddPackageScreen.aspx");
     }
 
+    protected void allBookingsBtn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AllBookingsScreen.aspx");
+    }
+
+    protected void reportBtn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ReportScreen.aspx");
+    }
+
+    protected void logoutBtn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("LoginScreen.aspx");
+    }
+
     protected void editBtn_Click(object sender, EventArgs e)
     {
         HttpCookie cookie = new HttpCookie("packageCode");
@@ -42,12 +56,11 @@ public partial class Dashboard : System.Web.UI.Page
     protected void deleteBtn_Click(object sender, EventArgs e)
     {
         String packageCode = Convert.ToString((sender as LinkButton).CommandArgument);
-        string query = "Delete FROM PackageTable WHERE packageCode ='"+packageCode+"'";
+        string query = "Delete FROM PackageTable WHERE packageCode ='" + packageCode + "'";
         cmd.CommandText = query;
         cmd.ExecuteNonQuery();
         con.Close();
         GridView1.DataBind();
-
     }
 
     protected void bookNowBtn_Click(object sender, EventArgs e)
@@ -59,17 +72,5 @@ public partial class Dashboard : System.Web.UI.Page
         // cookie.Expires = DateTime.Now.AddDays(30);
         Response.Cookies.Add(cookie);
         Response.Redirect("CreateBookingScreen.aspx");
-    }
-    protected void allBookingsBtn_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("AllBookingsScreen.aspx");
-    }
-    protected void reportBtn_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ReportScreen.aspx");
-    }
-    protected void logoutBtn_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("LoginScreen.aspx");
     }
 }
