@@ -53,9 +53,16 @@ public partial class BookingDetailScreen : System.Web.UI.Page
                     lblPrice.Text = reader["packprice"].ToString();
                     lblClientName.Text = reader["clientName"].ToString();
                     lblClinetEmail.Text = reader["clientMobile"].ToString();
-                    lblClientMobile.Text = reader["clientEmail"].ToString();
+                    lblClientMobile.Text = reader["clientAddress"].ToString();
                     lblStartDate.Text = reader["startDate"].ToString();
                     lblEndDate.Text = reader["endDate"].ToString();
+                    lblBookingStatus.Text = reader["bookingStatus"].ToString();
+
+                    if (reader["bookingStatus"].ToString().Equals("Cancelled"))
+                    {
+                        sLblResone.Visible = true;
+                        lblResone.Text = reader["resone"].ToString();
+                    }
                 }
             }
         }

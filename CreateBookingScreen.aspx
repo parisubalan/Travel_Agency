@@ -89,11 +89,10 @@
         <br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label9" runat="server" Text="Client Email"></asp:Label>
+        <asp:Label ID="Label9" runat="server" Text="Client Address"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="tbClinetEmail" runat="server" Width="354px"></asp:TextBox>
-        &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbClinetEmail" Display="Dynamic" ErrorMessage="Enter client email" ForeColor="Red"></asp:RequiredFieldValidator>
-&nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbClinetEmail" Display="Dynamic" ErrorMessage="Enter valid email" ForeColor="Red" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+        <asp:TextBox ID="tbClientAddress" runat="server" Width="354px"></asp:TextBox>
+        &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbClientAddress" Display="Dynamic" ErrorMessage="Enter client address" ForeColor="Red"></asp:RequiredFieldValidator>
         <br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

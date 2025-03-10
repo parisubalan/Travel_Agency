@@ -58,7 +58,7 @@ public partial class CreateBookingForm : System.Web.UI.Page
     protected void createBtn_Click(object sender, EventArgs e)
     {
         String bookingCode = GenerateBookingCode();
-        cmd.CommandText = "insert into BookingsTable values('" + bookingCode + "', '" + lblPackCode.Text + "','" + lblPackName.Text + "','" + lblDesc.Text + "','" + lblPrice.Text + "','" + lblDuration.Text + "','" + lblMember.Text + "','" + tbClientName.Text + "','" + tbClientMobile.Text + "','" + tbClinetEmail.Text + "','" + tbStartDate.Text + "','" + tbEndDate.Text + "')";
+        cmd.CommandText = "insert into BookingsTable values('" + bookingCode + "', '" + lblPackCode.Text + "','" + lblPackName.Text + "','" + lblDesc.Text + "','" + lblPrice.Text + "','" + lblDuration.Text + "','" + lblMember.Text + "','" + tbClientName.Text + "','" + tbClientMobile.Text + "','" + tbClientAddress.Text + "','" + tbStartDate.Text + "','" + tbEndDate.Text + "', 'Booked','')";
         cmd.ExecuteNonQuery();
         lblMessage.Text = "Booking was created";
         lblMessage.ForeColor = System.Drawing.ColorTranslator.FromHtml("#34eb83");

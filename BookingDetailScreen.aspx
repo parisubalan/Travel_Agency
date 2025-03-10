@@ -28,7 +28,7 @@
 </head>
 <body>
     <form id="form2" runat="server">
-    <div style="height: 931px">
+    <div style="height: 1033px">
     
         <strong><span class="auto-style1">Travel Agency With Booking System</span><br class="auto-style1" />
         </strong>
@@ -106,6 +106,18 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Label11" runat="server" Text="End Date"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Label ID="lblEndDate" runat="server" style="font-weight: 700"></asp:Label>
+        &nbsp;&nbsp;
+        <br />
+        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label13" runat="server" Text="Booking Status"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Label ID="lblBookingStatus" runat="server" style="font-weight: 700"></asp:Label>
+        &nbsp;&nbsp;
+        <br />
+        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="sLblResone" runat="server" Text="Resone" Visible="False"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;<asp:Label ID="lblResone" runat="server" style="font-weight: 700"></asp:Label>
         &nbsp;&nbsp;
         <br />
         <strong>
