@@ -55,6 +55,8 @@ Traveling has become an integral part of modern lifestyles, and the demand for e
 | clientEmail      | VARCHAR(50)     | Email address of the client              | Not null                                     |
 | startDate        | VARCHAR(50)     | Start date of the booking                | Not null                                     |
 | endDate          | VARCHAR(50)     | End date of the booking                  | Not null                                     |
+| bookingStatus    | VARCHAR(50)     | Status of booking                        | Not null                                     |
+| resone           | VARCHAR(50)     | Cancellation resone                      | Not null                                     |
 
 # Module's
 **1.Multiple Package Management**: The system allows travel agencies to create and edit various travel packages, including details like package name, duration, price, and member limit's feature helps organize and present different travel options to users effectively.
@@ -67,5 +69,6 @@ Traveling has become an integral part of modern lifestyles, and the demand for e
 # Flow sketches
 ![000_Login_Register_Screen](https://github.com/user-attachments/assets/99d1a4f6-7177-4953-bda6-ee70f50ef59d)
 
-![03_Travel_Agency](https://github.com/user-attachments/assets/20d09d97-45d5-423b-b8bc-6c1ffae3a098)
+![03_Travel_Agency_Updated](https://github.com/user-attachments/assets/1c6be5af-ea75-406f-9507-7451c152429d)
+
 
