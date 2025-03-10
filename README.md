@@ -69,6 +69,7 @@ Traveling has become an integral part of modern lifestyles, and the demand for e
 # Flow sketches
 ![000_Login_Register_Screen](https://github.com/user-attachments/assets/99d1a4f6-7177-4953-bda6-ee70f50ef59d)
 
-![03_Travel_Agency_Updated](https://github.com/user-attachments/assets/1c6be5af-ea75-406f-9507-7451c152429d)
+
+![03_Travel_Agency_Updated](https://github.com/user-attachments/assets/5e48dfbc-7733-42ff-99ad-8df8cdb0463a)
 
 
